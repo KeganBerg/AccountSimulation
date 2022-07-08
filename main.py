@@ -1,67 +1,62 @@
 import time
-checking = 0
-savings = 0
+checking_balance = 0.0
+savings_balance = 0.0
 
 time.sleep(1)
 print("Thank you for choosing the Bank of Kegan")
 time.sleep(1)
-choice = input("Type \"Deposit\" or \"Withdraw\" \n ")
-if choice:
-    str("Deposit")
-    account_choice = input("Type \"Checking\" or \"Savings\" \n ")
-    if account_choice:
-        str("Checking")
+transaction_type = input("Type \"Deposit\" or \"Withdraw\" \n ")
+if transaction_type == "Deposit":
+    # str("Deposit")              # This does nothing, no equal sign.
+    account_type = input("Type \"Checking\" or \"Savings\" \n ")
+    if account_type == "Checking":
+        str("Checking")              # This does nothing, no equal sign.
         print("Checking Account Loading... \n")
-        print("Checking: $", checking, "\n")
+        print("Checking: $", checking_balance, "\n")
         time.sleep(2)
-        amount1 = int(input("Please type how much you'd like to deposit. \n "))
-        print("$", amount1, "Transaction Pending...")
+        checking_deposit_amount = float(input("Please type how much you'd like to deposit. \n "))
+        print("$", checking_deposit_amount, "Transaction Pending...")
         time.sleep(2)
-        checking = (checking + amount1)
+        checking_balance += checking_deposit_amount
         print("Your new balance is: ")
-        print("$", checking)
+        print("$", checking_balance)
         exit()
 
-    if account_choice:
-        str("Savings")
+    elif account_type == "Savings":
+        str("Savings")              # This does nothing, no equal sign.
         print("Savings Account Loading... ")
-        print("Savings: $", savings)
+        print("Savings: $", savings_balance)
         time.sleep(2)
-        amount2 = int(input("Please type how much you'd like to deposit. \n "))
-        print("$", amount2, "deposit transaction pending... ")
+        savings_deposit_amount = float(input("Please type how much you'd like to deposit. \n "))
+        print("$", savings_deposit_amount, "deposit transaction pending... ")
         time.sleep(2)
-        savings = (savings + amount2)
+        savings_balance += savings_deposit_amount
         print("Your new balance is: ")
-        print("$", savings)
+        print("$", savings_balance)
         exit()
     else:
         print("Please choose a valid argument ")
-if choice:
-    str("Withdraw")
+elif transaction_type == "Withdrawal":
+    str("Withdraw")              # This does nothing, no equal sign.
     print("Type what account you would like to withdraw from. ")
-    choice2 = input("Checking or Savings")
-    if choice2:
+    account_type_choice = input("Checking or Savings")
+    if account_type_choice == "Checking":
         str("Checking")
         print("Checking Account Loading... ")
         time.sleep(2)
-        print("Checking \n Balance: ", checking)
-        withdraw1 = int(input("Type how much you would like to withdraw. "))
-        print("$", withdraw1, "withdraw transaction pending... ")
+        print("Checking \n Balance: ", checking_balance)
+        checking_withdrawal_amount = float(input("Type how much you would like to withdraw. "))
+        print("$", checking_withdrawal_amount, "withdraw transaction pending... ")
         time.sleep(2)
-        checking = withdraw1 - checking
-        print("your new balance is: $", checking)
-    if choice2:
-        str("Savings")
+        checking_balance -= checking_balance
+        print("your new balance is: $", checking_balance)
+    elif account_type_choice == "Savings":
+        str("Savings")              # This does nothing, no equal sign.
         print("Savings Account Loading... ")
         time.sleep(2)
-        print("Savings \n Balance: ", savings)
-        withdraw2 = int(input("Type how much you would like to withdraw. "))
-        print("$", withdraw2, "withdraw transaction pending... ")
+        print("Savings \n Balance: ", savings_balance)
+        savings_withdrawal_amount = float(input("Type how much you would like to withdraw. "))
+        print("$", savings_withdrawal_amount, "withdraw transaction pending... ")
         time.sleep(2)
-        savings = withdraw2 - savings
-        print("your new balance is: $", savings)
-
-
-
-
-
+        savings_balance -= savings_balance
+        print("Your new balance is: $", savings_balance)

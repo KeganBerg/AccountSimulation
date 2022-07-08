@@ -1,8 +1,8 @@
 import time
 checking = 0
 savings = 0
-proceed1 = "Checking" or "checking"
-proceed2 = "Savings" or "savings"
+proceed1 = "Checking" or "checking_balance"
+proceed2 = "Savings" or "savings_balance"
 deposit = "Deposit" or "deposit"
 withdraw = "Withdraw" or "withdraw"
 
@@ -76,8 +76,3 @@ elif choice == "Withdraw":
          print("your new balance is: $", savings)
     else:
         print("Please choose a valid argument.")
-
-
-
-
-
