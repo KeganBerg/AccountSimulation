@@ -1,10 +1,10 @@
 import time
-checking = 0
-savings = 0
-proceed1 = "Checking" or "checking_balance"
-proceed2 = "Savings" or "savings_balance"
-deposit = "Deposit" or "deposit"
-withdraw = "Withdraw" or "withdraw"
+checking = 20000.00
+savings = 50000.00
+valid_checking_responses = ["Checking", "checking_balance"]
+valid_savings_responses = ["Savings", "savings_balance"]
+valid_deposit_responses = ["Deposit", "valid_deposit_responses"]
+valid_withdraw_responses = ["Withdraw", "valid_withdraw_responses"]
 
 time.sleep(1)
 print("Thank you for choosing the Bank of Kegan")
@@ -15,12 +15,12 @@ if choice == "Deposit":
     time.sleep(.5)
     print("Please choose an account you would like to Deposit into. ")
     account_choice = str(input("Type \"Checking\" or \"Savings\" \n "))
-    if account_choice == proceed1:
+    if account_choice in valid_checking_responses:
         print("Checking Account Loading... \n")
         time.sleep(2)
         print("Checking: $", checking, "\n")
         time.sleep(2)
-        amount1 = int(input("Please type how much you'd like to deposit. \n "))
+        amount1 = float(input("Please type how much you'd like to valid_deposit_responses. \n "))
         time.sleep(.5)
         print("$", amount1, "Transaction Pending...")
         time.sleep(2)
@@ -29,12 +29,12 @@ if choice == "Deposit":
         print("$", checking)
         exit()
 
-    elif account_choice == proceed2:
+    elif account_choice in valid_savings_responses:
         print("Savings Account Loading... ")
         time.sleep(2)
         print("Savings: $", savings)
         time.sleep(2)
-        amount2 = int(input("Please type how much you'd like to deposit. \n "))
+        amount2 = float(input("Please type how much you'd like to valid_deposit_responses. \n "))
         time.sleep(.5)
         print("$", amount2, "Transaction Pending... ")
         time.sleep(2)
@@ -46,33 +46,33 @@ if choice == "Deposit":
      print("Please choose a valid argument ")
 elif choice == "Withdraw":
     print("Withdraw Transaction Initiated: Checking ")
-    print("Type what account you would like to withdraw from. ")
-    choice2 = str(input("Checking or Savings"))
-    if choice2 == proceed1:
+    print("Type what account you would like to valid_withdraw_responses from. ")
+    account_choice = str(input("Checking or Savings"))
+    if account_choice in valid_checking_responses:
         print("Withdraw Transaction Initiated: Checking ")
         print("Checking Account Loading... ")
         time.sleep(2)
         print("Checking \n Balance: ", checking)
-        withdraw1 = int(input("Type how much you would like to withdraw. "))
-        print("$", withdraw1, "withdraw transaction pending... ")
+        withdraw1 = float(input("Type how much you would like to valid_withdraw_responses. "))
+        print("$", withdraw1, "valid_withdraw_responses transaction pending... ")
         time.sleep(2)
         if checking == 0:
             print("You broke broke, make some money and come back later.")
         else:
-         checking = withdraw1 - checking
+         checking -= withdraw1
          print("your new balance is: $", checking)
-    elif choice2 == proceed2:
+    elif account_choice in valid_savings_responses:
         time.sleep(.5)
         print("Savings Account Loading... ")
         time.sleep(2)
         print("Savings \n Balance: ", savings)
-        withdraw2 = int(input("Type how much you would like to withdraw. "))
-        print("$", withdraw2, "withdraw transaction pending... ")
+        withdraw2 = float(input("Type how much you would like to valid_withdraw_responses. "))
+        print("$", withdraw2, "valid_withdraw_responses transaction pending... ")
         time.sleep(2)
         if savings == 0:
             print("You broke broke, make some money and come back later.")
         else:
-         savings = withdraw2 - savings
+         savings -= withdraw2
          print("your new balance is: $", savings)
     else:
         print("Please choose a valid argument.")
